@@ -1,0 +1,17 @@
+.job-headings {font-weight: bold;font-size: 15px;}
+.job-values {font-size:14px;}
+#map {height: 400px;width: 100%;}
+.row{margin-top: 50px;}
+.logo-text {margin-left: 1%;}
+#work
+{
+	background-image: url("/assets/slider-bg.jpg");
+    color: white;
+}
+
+.less
+{
+	background-image: url("/assets/slider-bg.jpg");
+   
+}
+
