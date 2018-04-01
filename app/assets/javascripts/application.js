@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require cocoon
 //= require bootstrap
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap4
 //= require turbolinks

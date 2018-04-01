@@ -1,78 +1,54 @@
-
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <div class="row" >
+    <div class="col-md-7 col-sm-7">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="text-center card-title"><%= @job.job_title %></h4>
+          <h5 class="job-headings">Job Description</h5>
+          <p class="card-text job-values"><%= @job.job_description %></p>
+          <h5 class="job-headings">Job Location</h5>
+          <p class="card-text job-values"><i class="fa fa-map-marker"></i>  <%= @job.job_location %></p>
+          <h5 class="job-headings">Email</h5>
+          <p class="card-text job-values"><i class="fa fa-envelope"></i>  <%= @job.email %></p>
+          <h5 class="job-headings">Salary Range</h5>
+          <p class="card-text job-values"><i class="fa fa-inr"></i>  <%= @job.salary_range %></p>
+          <h5 class="job-headings">Job type</h5>
+          <p class="card-text job-values"><%= @job.job_type %></p>
+          <p>
+          </p>
+         
+          <%= link_to jobs_path, class: "btn btn-primary" do %>
+            <i class="fa fa-arrow-left"></i> Back
+          <% end %>
 
-  <p>
-    <strong>Job title:</strong>
-    <%= @job.job_title %>
-  </p>
+          <%= link_to "", class: "btn btn-primary" do %>
+            <i class="fa fa-thumbs-up"></i> Apply Now
+          <% end %>          
 
-  <p>
-    <strong>Email:</strong>
-    <%= @job.email %>
-  </p>
-
-  <p>
-    <strong>Job type:</strong>
-    <%= @job.job_type %>
-  </p>
-
-  <p>
-    <strong>Venue:</strong>
-    <%= @job.venue %>
-  </p>
-
-  <p>
-    <strong>City:</strong>
-    <%= @job.city %>
-  </p>
-
-  <p>
-    <strong>State:</strong>
-    <%= @job.state %>
-  </p>
-
-  <p>
-    <strong>Country:</strong>
-    <%= @job.country %>
-  </p>
-
-  <p>
-    <strong>Zipcode:</strong>
-    <%= @job.zipcode %>
-  </p>
-
-  <p>
-    <strong>Job description:</strong>
-    <%= @job.job_description %>
-  </p>
-
-  <p>
-    <strong>Salary range:</strong>
-    <%= @job.salary_range %>
-  </p>
-
-  <p>
-    <strong>Employeer:</strong>
-    <%= @job.employeer_id %>
-  </p>
-
-  <p>
-    <strong>Company:</strong>
-    <%= @job.company_id %>
-  </p>
-
-  <p>
-    <strong>Latitude:</strong>
-    <%= @job.latitude %>
-  </p>
-
-  <p>
-    <strong>Longitude:</strong>
-    <%= @job.longitude %>
-  </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-5">
+      <div id="map"></div>
+    </div>
+  </div>
 </div>
+<script>
+  function initMap() {
+    var job_location = {lat: <%= @job.latitude %>, lng: <%= @job.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: job_location
+    });
+    var marker = new google.maps.Marker({
+      position: job_location,
+      map: map
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfsqCxbcgsqYXMucH08nfifdtXK-8lPIQ&callback=initMap">
+</script>
 
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+
