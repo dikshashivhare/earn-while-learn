@@ -68,3 +68,5 @@ gem 'geocoder'
 gem "font-awesome-rails"
 gem 'kaminari'
 gem "cocoon"
+gem 'ckeditor'
+gem 'carrierwave'

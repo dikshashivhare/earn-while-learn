@@ -1,3 +1,8 @@
+<div class="inner-heading">
+  <div class="container">
+    <h2 class="text-center card-title" style="color: white">Login</h2>
+  </div>
+</div>
 <div style="margin-top: 50px;"></div>
 <div class="container">
   <div class="row">  
@@ -5,7 +10,7 @@
     <div class="col-md-6">
       <div class="card">
         <div class="container">
-          <h2 class="text-center card-title">Log in</h2>
+          
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
@@ -29,6 +34,7 @@
             <%= f.submit "Log in", class: "btn btn-primary" %>
           </div>
           <% end %>
+          <br>
 
           <%= render "employeers/shared/links" %>
         </div>

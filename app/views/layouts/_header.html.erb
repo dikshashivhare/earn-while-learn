@@ -15,21 +15,40 @@
     <li class="nav-item">
       <%= link_to "Jobs", jobs_path, class: "nav-link" %>
     </li>
-     <li class="nav-item">
-      <a class="nav-link" href="/">Contact Us</a>
+    <li class="nav-item">
+      <%= link_to "Contact Us",home_contact_us_path, class: "nav-link" %>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/">About</a>
+      <%= link_to "About",home_about_path, class: "nav-link" %>
     </li>
+    
+    
   </ul>
 
   
 
   <ul class="navbar-nav my-lg-0" >
-    
 
-   <li><%= link_to "Post a Job", new_job_path, class: "btn btn-secondary",:style =>"margin-right:20px" %></li>
-    <li><%= link_to "login", job_seeker_session_path,class: "btn btn-secondary" %></li>
+    <% if job_seeker_signed_in? %>
+    <li>
+      <%= link_to('Logout', destroy_job_seeker_session_path, method: :delete,class: "btn btn-secondary") %>        
+    </li>
+    <% elsif employeer_signed_in?
+    %>
+    <li>
+      <%= link_to'Logout', destroy_employeer_session_path, method: :delete,class: "btn btn-secondary",:style =>"margin-right:10px"; %>        
+    </li>
+    <% else %>
+    <li>
+      <li><%= link_to "login", job_seeker_session_path,class: "btn btn-secondary" ,:style =>"margin-right:10px" %></li> 
+    </li>
+    </li>
+    <% end %>
+    <% if employeer_signed_in? %>
+      <li><%= link_to "Post a Job", new_job_path, class: "btn btn-secondary",:style =>"margin-right:20px" %></li>
+    <% else %>
+      <li><%= link_to "Post a Job", new_employeer_session_path, class: "btn btn-secondary",:style =>"margin-right:20px" %></li>
+    <% end %>
   </ul>
 </div>
 </nav>

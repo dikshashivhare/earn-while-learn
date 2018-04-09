@@ -1,10 +1,8 @@
-
 <div class="container">
   <p id="notice"><%= notice %></p>
 <div class="text-center">
   <h1>Jobs</h1>
 </div>
-
   <table class="table table-bordered" id="jobs">
     <thead>
       <tr>
@@ -15,7 +13,6 @@
         <th>Actions</th>
       </tr>
     </thead>
-
     <tbody>
       <% @jobs.each do |job| %>
       <tr>
@@ -32,9 +29,7 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to 'New Job', new_job_path %>
 </div>
-
 <br>
 
 <script type="text/javascript">

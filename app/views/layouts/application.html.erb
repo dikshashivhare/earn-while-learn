@@ -6,13 +6,19 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 <style type="text/css">
-  
+  body{
+   width:  100%;
+  }
+  .row, col {
+    width: 100%;
+  }
 </style>
-  <body>
-   
+  <body>   
   	<%= render "layouts/header" %>
     <%= yield %>
+    <%= render "layouts/footer" %>
   </body>
 </html>

@@ -1,4 +1,5 @@
-class JobCategoriesController < ApplicationController
+class Admin::JobCategoriesController < ApplicationController
+  before_action :authenticate_admin!
   before_action :set_job_category, only: [:show, :edit, :update, :destroy]
 
   # GET /job_categories
@@ -28,7 +29,7 @@ class JobCategoriesController < ApplicationController
 
     respond_to do |format|
       if @job_category.save
-        format.html { redirect_to @job_category, notice: 'Job category was successfully created.' }
+        format.html { redirect_to admin_job_category_path(@job_category), notice: 'Job category was successfully created.' }
         format.json { render :show, status: :created, location: @job_category }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class JobCategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @job_category.update(job_category_params)
-        format.html { redirect_to @job_category, notice: 'Job category was successfully updated.' }
+        format.html { redirect_to admin_job_category_path(@job_category), notice: 'Job category was successfully updated.' }
         format.json { render :show, status: :ok, location: @job_category }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class JobCategoriesController < ApplicationController
   def destroy
     @job_category.destroy
     respond_to do |format|
-      format.html { redirect_to job_categories_url, notice: 'Job category was successfully destroyed.' }
+      format.html { redirect_to admin_job_categories_url, notice: 'Job category was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
